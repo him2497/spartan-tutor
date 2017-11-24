@@ -20,7 +20,7 @@ class Footer extends React.Component{
           <EmailIcon style={Styles.GmailIcon} color={red500} hoverColor={greenA200}/>
         </a>
         <h6 style={Styles.text}>Uses React.js</h6>
-
+        <p>Check out the new logo that I created on <a href="http://logomakr.com" title="Logo Makr">LogoMakr.com</a> https://logomakr.com/7GFBNv</p>
       </div>
     </footer>
   )}

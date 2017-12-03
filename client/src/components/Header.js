@@ -9,7 +9,10 @@ class Header extends Component {
       case null:
         return;
       case false:
-        return (<li><a href='/auth/google'>Login with Google</a></li>)
+        return [
+          <li key="1"><a href='student/auth/google'>Student Login</a></li>,
+          <li key="2"><a href='tutor/auth/google'>Tutor Login</a></li>
+      ]
       default:
         return [
           <li key="1"><Payments/></li>,
@@ -22,8 +25,8 @@ class Header extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <Link to={this.props.auth ? '/surveys' : '/'}
-          className="brand-logo">
+          <Link to={this.props.auth ? '/dashboard' : '/'}
+            className="brand-logo left" style={{paddingLeft: '20px'}}>
             Spartan Tutor
           </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">

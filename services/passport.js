@@ -16,12 +16,12 @@ passport.deserializeUser((id, done) => {
   });
 });
 
-passport.use(
+passport.use('student',
   new GoogleStrategy(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: '/auth/google/callback',
+      callbackURL: '/student/auth/google/callback',
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
@@ -30,7 +30,27 @@ passport.use(
           // we already have a record with the given profile ID
           return done(null, existingUser);
         } // we don't have a user record with this ID, make a new record!
-        const user = await new User({ googleId: profile.id, name: profile.displayName}).save()
+        const user = await new User({ googleId: profile.id, name: profile.displayName, type: "Student"}).save()
+        done(null, user);
+      }
+  )
+);
+
+passport.use('tutor',
+  new GoogleStrategy(
+    {
+      clientID: keys.googleClientID,
+      clientSecret: keys.googleClientSecret,
+      callbackURL: '/tutor/auth/google/callback',
+      proxy: true
+    },
+    async (accessToken, refreshToken, profile, done) => {
+      const existingUser = await User.findOne({ googleId: profile.id, name: profile.displayName});
+        if (existingUser) {
+          // we already have a record with the given profile ID
+          return done(null, existingUser);
+        } // we don't have a user record with this ID, make a new record!
+        const user = await new User({ googleId: profile.id, name: profile.displayName, type: "Tutor"}).save()
         done(null, user);
       }
   )

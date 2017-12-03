@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "client": "npm run start --prefix client",
+    "buildClient": " npm run build --prefix client",
     "dev": "concurrently \"nodemon\" \"npm run client\"",
+    "build": "concurrently \"nodemon\" \"npm run buildClient\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {

@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 
 const Landing = () => {
   return (
@@ -8,13 +7,13 @@ const Landing = () => {
       Spartan Tutor connects student who need help with coursework with experienced tutors.
       <p></p>
       <div className="container">
-        <Link to="/student">
+        <a href="/student/auth/google">
           <button className="btn">Student</button>
-        </Link>
+        </a>
         <p></p>
-        <Link to="/tutor">
+        <a href="/tutor/auth/google">
           <button className="btn">Tutor</button>
-        </Link>
+        </a>
       </div>
     </div>
   )

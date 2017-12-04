@@ -4,11 +4,11 @@ import {connect} from 'react-redux';
 import * as actions from '../actions';
 import Header from './Header';
 import Landing from './Landing';
-import StudentProfile from './student/studentProfile';
-import StudentDashboard from './student/studentDashboard';
+import Dashboard from './Dashboard'
+import RequestNew from './student/RequestNew'
+import StudentDashboard from './student/studentDashboard'
+import TutorDashboard from './tutor/tutorDashboard'
 
-const Dashboard = () => <h2>Dashboard</h2>
-const SurveyNew = () => <h2>SurveyNew</h2>
 
 class App extends React.Component{
   componentDidMount(){
@@ -22,10 +22,10 @@ class App extends React.Component{
           <div>
             <Header/>
             <Route exact path="/" component={Landing}></Route>
-            <Route exact path="/surveys" component={Dashboard}></Route>
-            <Route path="/surveys/new" component={SurveyNew}></Route>
-            <Route path="/student/profile" component={StudentProfile} ></Route>
+            <Route exact path="/dashboard" component={Dashboard}></Route>
+            <Route path="/students/requests/new" component={RequestNew}></Route>
             <Route path="/student/dashboard" component={StudentDashboard}></Route>
+            <Route path="/tutor/dashboard" component={TutorDashboard}></Route>
           </div>
         </BrowserRouter>
       </div>

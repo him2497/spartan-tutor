@@ -1,28 +1,16 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import { Route, Redirect } from 'react-router'
-
+import {Link} from 'react-router-dom'
 
 class studentDashboard extends Component {
-
-  renderContent() {
-    if (this.props.auth) {
-      if (this.props.auth.type === "Student") {
-        return (<p>Works</p>)
-      }
-      else if(this.props.auth.type === "Tutor") {
-        return (<Redirect to="/tutor/dashboard"/>)
-      }
-    }else{
-      return (<Redirect exact to="/"/>)
-    }
-  }
-
   render() {
-    return (<div>
-      studentDashboard {this.renderContent()}
-    </div>)
-  }
+    return (
+      <div className="fixed-action-btn">
+        <Link to="/students/requests/new" className="btn-floating btn-large red">
+          <i className="large material-icons">add</i>
+        </Link>
+      </div>
+    )}
 }
 
 function mapStateToProps(state) {

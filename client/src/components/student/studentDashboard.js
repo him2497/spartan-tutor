@@ -1,20 +1,19 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import StudentRequestList from './StudentRequestList'
 
 class studentDashboard extends Component {
   render() {
     return (
-      <div className="fixed-action-btn">
-        <Link to="/students/requests/new" className="btn-floating btn-large red">
-          <i className="large material-icons">add</i>
-        </Link>
+      <div className="container">
+        <StudentRequestList/>
+        <div className="fixed-action-btn">
+          <Link to="/students/requests/new" className="btn-floating btn-large red">
+            <i className="large material-icons">add</i>
+          </Link>
+        </div>
       </div>
     )}
 }
 
-function mapStateToProps(state) {
-  return {auth: state.auth};
-}
-
-export default connect(mapStateToProps)(studentDashboard);
+export default studentDashboard;

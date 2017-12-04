@@ -7,8 +7,6 @@ const TutorRequests = mongoose.model('tutorRequests');
 module.exports = app => {
   app.post('/api/request', requireLogin, requireCredits, async (req, res) => {
     const {subject, question} = req.body;
-
-    console.log(req.user.name);
     const request = new TutorRequests({
       subject,
       question,

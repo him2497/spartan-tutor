@@ -23,7 +23,7 @@ const RequestFormReview = ({onCancel, formValues, submitRequest, history}) => {
       {reviewFields}
       <br></br>
       <button className="yellow white-text darken-3 btn-flat" onClick={onCancel}>Back</button>
-      <button className="green white-text right btn-flat" onClick={() => submitRequest(formValues, history)}>Send Survey
+      <button className="green white-text right btn-flat" onClick={() => submitRequest(formValues, history)}>Send Tutoring Request
         <i className="material-icons right">email</i>
       </button>
     </div>

@@ -3,8 +3,13 @@ import {connect} from 'react-redux';
 import {fetchStudentRequests} from '../../actions';
 
 class StudentRequestList extends Component{
+  constructor(){
+    super();
+    this.state = {isLoading: true}
+  }
 
   componentDidMount(){
+    this.setState({isLoading: false})
     this.props.fetchStudentRequests();
   }
 
@@ -25,7 +30,7 @@ class StudentRequestList extends Component{
   render(){
     return(
       <div>
-        {this.renderRequests()}
+        {this.state.isLoading ? <p>Loading</p> : this.renderRequests()}
       </div>
     )
   }

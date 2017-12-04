@@ -3,7 +3,7 @@ import React from 'react'
 const Landing = () => {
   return (
     <div style={{textAlign:'center'}}>
-      <h1>Spartan Tutor!</h1>
+      <h1 className="red-text text-lighten-1">Spartan Tutor!</h1>
       Spartan Tutor connects student who need help with coursework with experienced tutors.
       <p></p>
       <div className="container">

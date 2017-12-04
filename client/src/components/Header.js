@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Payments from './Payments'
+import image from '../img/SpartanTutoring.png'
 
 class Header extends Component {
   renderContent(){
@@ -28,7 +29,8 @@ class Header extends Component {
         <div className="nav-wrapper">
           <Link to={this.props.auth ? '/dashboard' : '/'}
             className="brand-logo left" style={{paddingLeft: '20px'}}>
-            Spartan Tutor
+            <img src={image} style={{height:'60px', width:'160px'}}></img>
+
           </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             {this.renderContent()}

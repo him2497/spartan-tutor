@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchStudentRequests} from '../../actions';
+import Loading from '../../components/loading'
+
 
 class StudentRequestList extends Component{
   constructor(){
@@ -9,16 +11,16 @@ class StudentRequestList extends Component{
   }
 
   componentDidMount(){
-    this.setState({isLoading: false})
+    setTimeout(() => this.setState({ isLoading: false }), 1500);
     this.props.fetchStudentRequests();
   }
 
   renderRequests(){
     return this.props.requests.reverse().map(request => {
       return(
-        <div class="card blue-grey darken-1" key={request._id}>
-          <div class="card-content white-text">
-            <span class="card-title">{request.subject}</span>
+        <div className="card blue-grey darken-1" key={request._id}>
+          <div className="card-content white-text">
+            <span className="card-title">{request.subject}</span>
             <p>{request.question}</p>
             <p className="right">Sent on: {new Date(request.datePosted).toLocaleDateString()}</p>
           </div>
@@ -29,8 +31,8 @@ class StudentRequestList extends Component{
 
   render(){
     return(
-      <div>
-        {this.state.isLoading ? <p>Loading</p> : this.renderRequests()}
+      <div className="center">
+        {this.state.isLoading ? <Loading/> : this.renderRequests()}
       </div>
     )
   }

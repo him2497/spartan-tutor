@@ -6,7 +6,7 @@ const tutorRequestSchema = {
   question: String,
   userName: String,
   _user: {type:Schema.Types.ObjectId, ref:'User'},
-  datePosted: Date
+  datePosted: Date,
 }
 
 mongoose.model('tutorRequests', tutorRequestSchema);

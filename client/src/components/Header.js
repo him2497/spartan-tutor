@@ -29,7 +29,7 @@ class Header extends Component {
         <div className="nav-wrapper">
           <Link to={this.props.auth ? '/dashboard' : '/'}
             className="brand-logo left" style={{paddingLeft: '20px'}}>
-            <img src={image} style={{height:'60px', width:'160px'}}></img>
+            <img src={image} alt="Logo" style={{height:'60px', width:'160px'}}></img>
 
           </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">

@@ -5,7 +5,10 @@ const userSchema = new Schema({
   type: {type: String, default: "1"},
   googleId: String,
   name: String,
+  email: String,
   credits: {type: Number, default: 0},
+  dismissed: [String]
+
 });
 
 mongoose.model('users', userSchema);

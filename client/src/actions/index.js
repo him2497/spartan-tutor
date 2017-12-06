@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { FETCH_USER} from './types';
-import { FETCH_REQUESTS } from './types';
+import { FETCH_USER, FETCH_REQUESTS, DELETE_REQUEST } from './types';
+
 
 export const fetchUser = () => async (dispatch) => {
     const res = await axios.get('/api/current_user')
@@ -27,3 +27,8 @@ export const submitRequest = (values, history) => async dispatch => {
   history.push('/dashboard');
   dispatch({type:FETCH_USER, payload:res.data})
 }
+
+export const deleteRequest = (id) => async dispatch => {
+  //const res = await axios.delete(`/api/requests/${id}`);
+  dispatch({type: DELETE_REQUEST, id})
+};

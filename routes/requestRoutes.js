@@ -38,4 +38,8 @@ module.exports = app => {
   res.send(tutor);
 })
 
+app.delete('/api/requests/:_id', (req, res) => {
+  TutorRequests.findOne({_id :req.params._id}).remove().exec()
+})
+
 };

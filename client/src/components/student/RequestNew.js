@@ -24,5 +24,5 @@ class RequestNew extends Component {
 
 
 export default reduxForm({
-  form:'RequestForm'
+  form:'requestForm'
 })(RequestNew);

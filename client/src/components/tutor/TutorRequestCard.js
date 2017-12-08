@@ -11,10 +11,13 @@ export default function TutorRequestCard ({request, deleteRequest}){
           </div>
           <div className="card-action" style={{paddingBottom: '30px'}}>
             <a>By: {request.userName}</a>
-            <button className="green right white-text btn-flat">
+            <button className="green right black-text btn-flat" style={{marginLeft: '5px'}}>
               Accept
             </button>
-            <button className="red right white-text btn-flat" onClick={() => deleteRequest(request._id)}>
+            <button className="yellow right black-text btn-flat" style={{marginLeft: '5px'}}>
+              Chat
+            </button>
+            <button className="red right black-text btn-flat" onClick={() => deleteRequest(request._id)}>
               Decline
             </button>
 

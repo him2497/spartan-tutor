@@ -39,7 +39,14 @@ module.exports = app => {
 })
 
 app.delete('/api/requests/:_id', (req, res) => {
+  try {
+    req.user.credits += 10;
+    res.send(req.user.save());
+  }catch (err) {
+    res.status(422).send(err);
+  }
   TutorRequests.findOne({_id :req.params._id}).remove().exec()
+
 })
 
 };

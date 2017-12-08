@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Payments from './Payments'
+import PaymentsTutor from './PaymentsTutor'
 import image from '../img/SpartanTutoring.png'
 
 class Header extends Component {
@@ -17,12 +18,17 @@ class Header extends Component {
       default:
         return [
           <li key="4" style={{paddingRight:'10px'}}><a href={this.props.auth.type === "Student" ? '/student/dashboard' : '/tutor/dashboard'}>Home</a></li>,
-          <li key="1"><Payments/></li>,
+          <li key="1">{this.props.auth.type === "Student" ? <Payments/> : <PaymentsTutor/>}</li>,
           <li key="3" style={{margin:'0 10px'}}> Credits: {this.props.auth.credits} </li>,
-          <li key="2"><a href='/api/logout'>Logout</a></li>
+            <li key="2"><a href='/api/logout'>Logout</a></li>
       ]
     }
   }
+
+  renderUser(){
+
+    }
+
   render() {
     return (
       <nav>
@@ -30,7 +36,6 @@ class Header extends Component {
           <Link to={this.props.auth ? '/dashboard' : '/'}
             className="brand-logo left" style={{paddingLeft: '20px'}}>
             <img src={image} alt="Logo" style={{height:'60px', width:'160px'}}></img>
-
           </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             {this.renderContent()}

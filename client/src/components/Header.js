@@ -25,10 +25,6 @@ class Header extends Component {
     }
   }
 
-  renderUser(){
-
-    }
-
   render() {
     return (
       <nav>

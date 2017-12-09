@@ -34,6 +34,10 @@ export const submitRequest = (values, history) => async dispatch => {
 }
 
 export const deleteRequest = (id) => async dispatch => {
+  dispatch({type: DELETE_REQUEST, id})
+};
+
+export const acceptRequest = (id) => async dispatch => {
   const res = await axios.delete(`/api/requests/${id}`);
   dispatch({type: DELETE_REQUEST, id})
 };

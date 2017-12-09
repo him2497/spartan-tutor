@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TutorRequestCard ({request, deleteRequest}){
+export default function TutorRequestCard ({request, deleteRequest, acceptRequest}){
     return(
       <div>
         <div className="card blue-grey darken-1" key={request._id}>
@@ -11,7 +11,7 @@ export default function TutorRequestCard ({request, deleteRequest}){
           </div>
           <div className="card-action" style={{paddingBottom: '30px'}}>
             <a>By: {request.userName}</a>
-            <button className="green right black-text btn-flat" style={{marginLeft: '5px'}}>
+            <button className="green right black-text btn-flat" style={{marginLeft: '5px'}} onClick={() => acceptRequest(request._id)}>
               Accept
             </button>
             <button className="yellow right black-text btn-flat" style={{marginLeft: '5px'}}>

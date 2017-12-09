@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchTutorRequests, deleteRequest} from '../../actions';
+import {fetchTutorRequests, deleteRequest, acceptRequest} from '../../actions';
 import TutorRequestList from './TutorRequestList'
 import Loading from '../../components/loading'
 
@@ -13,14 +13,14 @@ class TutorPage extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => this.setState({isLoading: false}), 1500);
+    setTimeout(() => this.setState({isLoading: false}), 500);
     this.props.fetchTutorRequests();
   }
 
   render() {
     return (<div>
       {this.state.isLoading ? <Loading/> :
-      <TutorRequestList requests={this.props.requests} deleteRequest={this.props.deleteRequest}/>}
+      <TutorRequestList requests={this.props.requests} acceptRequest={this.props.acceptRequest} deleteRequest={this.props.deleteRequest}/>}
     </div>)
   }
 
@@ -30,4 +30,4 @@ function mapStateToProps(state) {
   return {requests: state.requests}
 }
 
-export default connect(mapStateToProps, {fetchTutorRequests, deleteRequest})(TutorPage);
+export default connect(mapStateToProps, {fetchTutorRequests, deleteRequest, acceptRequest})(TutorPage);

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchStudentRequests} from '../../actions';
+import {fetchStudentRequests, deleteStudentReq} from '../../actions';
 import Loading from '../../components/loading'
 
 
@@ -22,7 +22,15 @@ class StudentRequestList extends Component{
           <div className="card-content white-text">
             <span className="card-title">{request.subject}</span>
             <p>{request.question}</p>
-            <p className="right">Sent on: {new Date(request.datePosted).toLocaleDateString()}</p>
+            <br></br>
+            <p>Location: {request.location}<i className="material-icons">location_on</i></p>
+            <div style={{paddingBottom: '30px'}}>
+              <p className="right">Sent on: {new Date(request.datePosted).toLocaleDateString()}</p>
+
+              <button className="red left black-text btn-flat" onClick={() => this.props.deleteStudentReq(request._id)}>
+                Delete
+              </button>
+            </div>
           </div>
         </div>
       )
@@ -44,4 +52,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps, { fetchStudentRequests })(StudentRequestList);
+export default connect(mapStateToProps, { fetchStudentRequests, deleteStudentReq })(StudentRequestList);

@@ -5,8 +5,18 @@ const TutorRequests = mongoose.model('tutorRequests');
 
 module.exports = app => {
   app.post('/api/request', requireLogin, requireCredits, async (req, res) => {
-    const {subject, question} = req.body;
-    const request = new TutorRequests({subject, question, userName: req.user.name, _user: req.user.id, datePosted: Date.now()});
+    const {subject, question, accepted, date, location} = req.body;
+    const request =
+    new TutorRequests({
+      subject,
+      question,
+      userName: req.user.name,
+      _user: req.user.id,
+      datePosted: Date.now(),
+      accepted,
+      dateForMeet: date,
+      location: location
+    });
     try {
       await request.save();
       req.user.credits -= 10;
@@ -32,10 +42,18 @@ module.exports = app => {
     res.send(tutor);
   })
 
-  app.delete('/api/requests/:_id', async (req, res) => {
-    TutorRequests.findOne({_id: req.params._id}).remove().exec()
+  app.delete('/api/student/requests/:_id', async (req, res) => {
+    TutorRequests.find({_id: req.params._id}).remove().exec();
+  })
+
+  app.post('/api/requests/:_id', async (req, res) => {
+    TutorRequests.findOneAndUpdate({_id: req.params._id}, req, (err, doc) => {
+      if (err) return res.send(500, { error: err });
+      console.log(doc);
+
+    })
     req.user.credits += 10;
-    const user = await req.user.save();
+    const user = req.user.save();
     res.send(user);
   })
 

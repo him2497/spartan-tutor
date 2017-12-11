@@ -9,7 +9,6 @@ import RequestNew from './student/RequestNew'
 import StudentDashboard from './student/studentDashboard'
 import TutorDashboard from './tutor/tutorDashboard'
 
-
 class App extends React.Component{
   componentDidMount(){
     this.props.fetchUser();

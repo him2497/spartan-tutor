@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 export default function TutorRequestCard ({request, deleteRequest, acceptRequest}){
     return(
@@ -11,16 +12,18 @@ export default function TutorRequestCard ({request, deleteRequest, acceptRequest
           </div>
           <div className="card-action" style={{paddingBottom: '30px'}}>
             <a>By: {request.userName}</a>
-            <button className="green right black-text btn-flat" style={{marginLeft: '5px'}} onClick={() => acceptRequest(request._id)}>
+            <button className="green right black-text btn-flat" style={{marginLeft: '5px'}}
+              onClick={() => acceptRequest(request._id)}>
               Accept
             </button>
-            <button className="yellow right black-text btn-flat" style={{marginLeft: '5px'}}>
-              Chat
-            </button>
+            <Link to="/tutor/requests/comments">
+              <button className="yellow right black-text btn-flat" style={{marginLeft: '5px'}}>
+                Chat
+              </button>
+            </Link>
             <button className="red right black-text btn-flat" onClick={() => deleteRequest(request._id)}>
               Decline
             </button>
-
           </div>
         </div>
       </div>

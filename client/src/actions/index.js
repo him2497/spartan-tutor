@@ -37,7 +37,12 @@ export const deleteRequest = (id) => async dispatch => {
   dispatch({type: DELETE_REQUEST, id})
 };
 
+export const deleteStudentReq = (id) => dispatch => {
+  axios.delete(`/api/student/requests/${id}`);
+  dispatch({type: DELETE_REQUEST, id})
+};
+
 export const acceptRequest = (id) => async dispatch => {
-  const res = await axios.delete(`/api/requests/${id}`);
+  const res = await axios.post(`/api/requests/${id}`);
   dispatch({type: DELETE_REQUEST, id})
 };

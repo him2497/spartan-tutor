@@ -2,8 +2,9 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
-
 const User = mongoose.model('users');
+
+mongoose.Promise = global.Promise;
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -25,12 +26,14 @@ passport.use('student',
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-      const existingUser = await User.findOne({ googleId: profile.id, name: profile.displayName});
+      const existingUser = await User.findOne({ googleId: profile.id,
+        name: profile.displayName, email: profile.emails[0].value, photo:profile.photos[0].value });
         if (existingUser) {
           // we already have a record with the given profile ID
           return done(null, existingUser);
         } // we don't have a user record with this ID, make a new record!
-        const user = await new User({ googleId: profile.id, name: profile.displayName, type: "Student"}).save()
+        const user = await new User({ googleId: profile.id, name: profile.displayName,
+          type: "Student", email: profile.emails[0].value, photo:profile.photos[0].value }).save()
         done(null, user);
       }
   )
@@ -45,12 +48,14 @@ passport.use('tutor',
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-      const existingTutor = await User.findOne({ googleId: profile.id, name: profile.displayName, email: profile.emails[0].value });
+      const existingTutor = await User.findOne({ googleId: profile.id,
+        name: profile.displayName, email: profile.emails[0].value, photo:profile.photos[0].value });
         if (existingTutor) {
           // we already have a record with the given profile ID
           return done(null, existingTutor);
         } // we don't have a user record with this ID, make a new record!
-        const tutor = await new User({ googleId: profile.id, name: profile.displayName, type: "Tutor", email: profile.emails[0].value}).save()
+        const tutor = await new User({ googleId: profile.id, name: profile.displayName,
+          type: "Tutor", email: profile.emails[0].value, photo:profile.photos[0].value }).save()
         done(null, tutor);
       }
   )

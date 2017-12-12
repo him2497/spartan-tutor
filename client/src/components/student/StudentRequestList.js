@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom'
 import {connect} from 'react-redux';
 import {fetchStudentRequests, deleteStudentReq} from '../../actions';
 import Loading from '../../components/loading'
@@ -16,6 +17,8 @@ class StudentRequestList extends Component{
   }
 
   renderRequests(){
+    const user = this.props.auth.name
+
     return this.props.requests.reverse().map(request => {
       return(
         <div className="card blue-grey darken-1" key={request._id}>
@@ -30,6 +33,12 @@ class StudentRequestList extends Component{
               <button className="red left black-text btn-flat" onClick={() => this.props.deleteStudentReq(request._id)}>
                 Delete
               </button>
+
+              <Link to={`/student/requests/comments/${ request._id }/${ request.question }/${user}`}>
+                <button className="yellow left black-text btn-flat" style={{marginLeft: '5px'}}>
+                  Chat 
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -48,7 +57,8 @@ class StudentRequestList extends Component{
 
 function mapStateToProps(state){
   return{
-    requests: state.requests
+    requests: state.requests,
+    auth: state.auth
   }
 }
 

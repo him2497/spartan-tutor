@@ -21,7 +21,7 @@ class TutorPage extends Component {
     return (
         <div>
           {this.state.isLoading ? <Loading/> :
-          <TutorRequestList requests={this.props.requests} acceptRequest={this.props.acceptRequest} deleteRequest={this.props.deleteRequest}/>}
+          <TutorRequestList requests={this.props.requests} user={this.props.auth.name} acceptRequest={this.props.acceptRequest} deleteRequest={this.props.deleteRequest}/>}
         </div>
     )
   }
@@ -29,7 +29,10 @@ class TutorPage extends Component {
 }
 
 function mapStateToProps(state) {
-  return {requests: state.requests}
+  return {
+    requests: state.requests,
+    auth: state.auth
+  }
 }
 
 export default connect(mapStateToProps, {fetchTutorRequests, deleteRequest, acceptRequest})(TutorPage);

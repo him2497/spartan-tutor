@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
-export default function TutorRequestCard ({request, deleteRequest, acceptRequest, user}){
+export default function TutorRequestCard ({request, deleteRequest, acceptRequest, user, type}){
   return(
     <div>
       <div className="card blue-grey darken-1" key={request._id}>
@@ -16,7 +16,7 @@ export default function TutorRequestCard ({request, deleteRequest, acceptRequest
             onClick={() => acceptRequest(request._id)}>
             Accept
           </button>
-          <Link to={`/tutor/requests/comments/${ request._id }/${ request.question }/${user}`}>
+          <Link to={`/tutor/requests/comments/${ request._id }/${ request.question }/${user}/${type}`}>
             <button className="yellow right black-text btn-flat" style={{marginLeft: '5px'}}>
               Chat
             </button>

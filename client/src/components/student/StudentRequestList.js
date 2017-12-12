@@ -18,7 +18,7 @@ class StudentRequestList extends Component{
 
   renderRequests(){
     const user = this.props.auth.name
-
+    const type = this.props.auth.type
     return this.props.requests.reverse().map(request => {
       return(
         <div className="card blue-grey darken-1" key={request._id}>
@@ -34,9 +34,9 @@ class StudentRequestList extends Component{
                 Delete
               </button>
 
-              <Link to={`/student/requests/comments/${ request._id }/${ request.question }/${user}`}>
+              <Link to={`/student/requests/comments/${ request._id }/${ request.question }/${user}/${type}`}>
                 <button className="yellow left black-text btn-flat" style={{marginLeft: '5px'}}>
-                  Chat 
+                  Chat
                 </button>
               </Link>
             </div>

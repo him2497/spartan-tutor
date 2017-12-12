@@ -21,7 +21,7 @@ class TutorPage extends Component {
     return (
         <div>
           {this.state.isLoading ? <Loading/> :
-          <TutorRequestList requests={this.props.requests} user={this.props.auth.name} acceptRequest={this.props.acceptRequest} deleteRequest={this.props.deleteRequest}/>}
+          <TutorRequestList requests={this.props.requests} type={this.props.auth.type} user={this.props.auth.name} acceptRequest={this.props.acceptRequest} deleteRequest={this.props.deleteRequest}/>}
         </div>
     )
   }

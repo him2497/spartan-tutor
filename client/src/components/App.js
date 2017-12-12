@@ -26,8 +26,8 @@ class App extends React.Component{
             <Route path="/students/requests/new" component={RequestNew}></Route>
             <Route path="/student/dashboard" component={StudentDashboard}></Route>
             <Route path="/tutor/dashboard" component={TutorDashboard}></Route>
-            <Route path="/tutor/requests/comments/:id/:question/:user" component={ChatRoom}></Route>
-            <Route path="/student/requests/comments/:id/:question/:user" component={ChatRoom}></Route>
+            <Route path="/tutor/requests/comments/:id/:question/:user/:type" component={ChatRoom}></Route>
+            <Route path="/student/requests/comments/:id/:question/:user/:type" component={ChatRoom}></Route>
           </div>
         </BrowserRouter>
       </div>

@@ -17,7 +17,7 @@ class Header extends Component {
       ]
       default:
         return [
-          <li key="5" ><img src={this.props.auth.photo} style={{borderRadius: '50%', paddingTop:'8px'}} alt="profile-photo"></img> </li>,
+          <li key="5" ><img src={this.props.auth.photo} style={{borderRadius: '50%', paddingTop:'8px'}} alt="profile-pic"></img> </li>,
           <li key="4" style={{paddingRight:'10px'}}><a href={this.props.auth.type === "Student" ? '/student/dashboard' : '/tutor/dashboard'}>Home</a></li>,
           <li key="1">{this.props.auth.type === "Student" ? <Payments/> : <PaymentsTutor/>}</li>,
           <li key="3" style={{margin:'0 10px'}}> Credits: {this.props.auth.credits} </li>,

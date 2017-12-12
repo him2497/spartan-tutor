@@ -18,10 +18,12 @@ class TutorPage extends Component {
   }
 
   render() {
-    return (<div>
-      {this.state.isLoading ? <Loading/> :
-      <TutorRequestList requests={this.props.requests} acceptRequest={this.props.acceptRequest} deleteRequest={this.props.deleteRequest}/>}
-    </div>)
+    return (
+        <div>
+          {this.state.isLoading ? <Loading/> :
+          <TutorRequestList requests={this.props.requests} acceptRequest={this.props.acceptRequest} deleteRequest={this.props.deleteRequest}/>}
+        </div>
+    )
   }
 
 }

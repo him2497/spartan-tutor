@@ -8,6 +8,7 @@ import Dashboard from './Dashboard'
 import RequestNew from './student/RequestNew'
 import StudentDashboard from './student/studentDashboard'
 import TutorDashboard from './tutor/tutorDashboard'
+import ChatRoom from './chat/ChatRoom'
 
 class App extends React.Component{
   componentDidMount(){
@@ -25,6 +26,7 @@ class App extends React.Component{
             <Route path="/students/requests/new" component={RequestNew}></Route>
             <Route path="/student/dashboard" component={StudentDashboard}></Route>
             <Route path="/tutor/dashboard" component={TutorDashboard}></Route>
+            <Route path="/tutor/requests/comments/:id/:question" component={ChatRoom}></Route>
           </div>
         </BrowserRouter>
       </div>

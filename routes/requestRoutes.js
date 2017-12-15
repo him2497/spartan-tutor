@@ -47,10 +47,10 @@ module.exports = app => {
   })
 
   app.post('/api/requests/:_id', async (req, res) => {
-    TutorRequests.findOneAndUpdate({_id: req.params._id}, req, (err, doc) => {
+    TutorRequests.findOneAndUpdate({_id: req.params._id},{$set:{accepted:"True"}}, req, (err, doc) => {
       if (err) return res.send(500, { error: err });
-      console.log(doc);
-
+      console.log(doc.accepted);
+      doc.accepted = true;
     })
     req.user.credits += 10;
     const user = req.user.save();

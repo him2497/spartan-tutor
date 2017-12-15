@@ -28,7 +28,9 @@ class Landing extends React.Component {
             <h1 className="red-text text-lighten-1" style={styles.fadeInDown}>Spartan Tutor!</h1>
           </StyleRoot>
           <StyleRoot>
-            <h5 className="white-text text-lighten-1" style={styles.zoomIn}>Spartan Tutor connects student who need help with coursework with experienced tutors.</h5>
+            <h5 className="white-text text-lighten-1" style={styles.zoomIn}>
+              Spartan Tutor connects student who need help with coursework with experienced tutors.
+            </h5>
           </StyleRoot>
           <p></p>
           <br></br>

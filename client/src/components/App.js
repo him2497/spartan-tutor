@@ -19,7 +19,7 @@ class App extends React.Component{
     return (
       <div>
         <BrowserRouter>
-          <div style={{fontFamily: 'Montserrat'}}>
+          <div style={{fontFamily: 'Montserrat', flex: 1}}>
             <Header/>
             <Route exact path="/" component={Landing}></Route>
             <Route exact path="/dashboard" component={Dashboard}></Route>

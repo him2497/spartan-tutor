@@ -17,7 +17,8 @@ const styles = {
     animationName: Radium.keyframes(slideInUp, 'slideInUp'),
     display: "flex",
     justifyContent: "center",
-    flexDirection: "row"
+    flexDirection: "row",
+    textAlign: 'center'
   },
 
 }
@@ -31,18 +32,20 @@ class Landing extends React.Component {
     }
   }
 
-  componentWillUpdate(){
+  componentWillMount(){
     this.setState({width: window.innerWidth})
   }
 
-  render() {
-    console.log(window.innerWidth*2)
+  componentDidUpdate(){
+    console.log(this.state)
+  }
 
+  render() {
+    console.log(this.state.width)
     return (
       <div style={{textAlign: 'center'}}>
-        <img src={image} alt="Logo" style={{width: window.innerWidth, height: 500}}></img>
-        <div style={{marginTop: '-400px'}}>
-          <p>Finish the header page and fix the text color and look at the mobile ui</p>
+        <img src={image} alt="Logo" style={{ width: '100%'}}></img>
+        <div style={{position: 'absolute', top: '50%', bottom: '50%', transform: 'translate(-50%, -50%)'}}>
           <StyleRoot>
             <h1 className="red-text text-lighten-1" style={styles.fadeInDown}>Spartan Tutor!</h1>
           </StyleRoot>

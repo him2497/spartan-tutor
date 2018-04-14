@@ -28,8 +28,9 @@ class Header extends Component {
 
   render() {
     return (
-      <nav>
-        <div className="nav-wrapper" style={{width: window.innerWidth}}>
+      <header>
+      <nav style={{flex: 1, flexDirection: 'column'}}>
+        <div >
           <Link to={this.props.auth ? '/dashboard' : '/'}
             className="brand-logo left" style={{paddingLeft: '20px'}}>
             <img src={image} alt="Logo" style={{height:'55px', width:'160px'}}></img>
@@ -39,6 +40,7 @@ class Header extends Component {
           </ul>
         </div>
       </nav>
+      </header>
     )
   }
 }

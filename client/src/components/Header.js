@@ -29,10 +29,10 @@ class Header extends Component {
   render() {
     return (
       <nav>
-        <div className="nav-wrapper">
+        <div className="nav-wrapper" style={{width: window.innerWidth}}>
           <Link to={this.props.auth ? '/dashboard' : '/'}
             className="brand-logo left" style={{paddingLeft: '20px'}}>
-            <img src={image} alt="Logo" style={{height:'60px', width:'160px'}}></img>
+            <img src={image} alt="Logo" style={{height:'55px', width:'160px'}}></img>
           </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             {this.renderContent()}

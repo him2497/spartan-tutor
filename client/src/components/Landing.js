@@ -2,6 +2,8 @@ import React from 'react'
 import image from '../img/sjsu.png'
 import {fadeInDown, slideInUp, zoomIn} from 'react-animations'
 import Radium, {StyleRoot} from 'radium';
+import Footer from './Footer'
+
 
 const styles = {
   fadeInDown: {
@@ -24,28 +26,12 @@ const styles = {
 }
 
 class Landing extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      width: 0,
-      height: 0
-    }
-  }
-
-  componentWillMount(){
-    this.setState({width: window.innerWidth})
-  }
-
-  componentDidUpdate(){
-    console.log(this.state)
-  }
 
   render() {
-    console.log(this.state.width)
     return (
-      <div style={{textAlign: 'center'}}>
-        <img src={image} alt="Logo" style={{ width: '100%'}}></img>
-        <div style={{position: 'absolute', top: '50%', bottom: '50%', transform: 'translate(-50%, -50%)'}}>
+      <div style={{textAlign: 'center' }}>
+        <img src={image} alt="Logo" style={{ width: '100%', paddingBottom: 100}}></img>
+        <div style={{marginTop:'-40%'}}>
           <StyleRoot>
             <h1 className="red-text text-lighten-1" style={styles.fadeInDown}>Spartan Tutor!</h1>
           </StyleRoot>
@@ -67,6 +53,9 @@ class Landing extends React.Component {
             </div>
           </StyleRoot>
       </div>
+        <footer style={{position: 'absolute', bottom: 0, width: '100%', paddingTop:'200px'}}>
+          <Footer/>
+        </footer>
     </div>
     )
   }

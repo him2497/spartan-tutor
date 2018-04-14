@@ -29,7 +29,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-      <nav style={{flex: 1, flexDirection: 'column'}}>
+      <nav style={{flex: 1}}>
         <div >
           <Link to={this.props.auth ? '/dashboard' : '/'}
             className="brand-logo left" style={{paddingLeft: '20px'}}>

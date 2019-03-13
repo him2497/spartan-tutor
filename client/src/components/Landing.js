@@ -53,7 +53,7 @@ class Landing extends React.Component {
             </div>
           </StyleRoot>
       </div>
-        <footer style={{position: 'absolute', bottom: 0, width: '100%', paddingTop:'200px'}}>
+        <footer style={{position: 'absolute', bottom: 0, width: '100%'}}>
           <Footer/>
         </footer>
     </div>

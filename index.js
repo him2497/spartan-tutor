@@ -26,7 +26,7 @@ require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
 require('./routes/requestRoutes')(app);
 
-
+console.log(process.env.NODE_ENV, process.env.REACT_APP_STRIPE_KEY);
 if(process.env.NODE_ENV === 'production'){
   //Express will serve up production assests like our main.js or main.css
   app.use(express.static('client/build'));
